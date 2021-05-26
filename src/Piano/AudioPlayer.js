@@ -1,8 +1,8 @@
-import Soundfont from "soundfont-player";
-import AC from "./AudioContext";
+import Soundfont from 'soundfont-player';
+import AC from './AudioContext';
 
 const NullAudio = {
-    stop() 
+    stop() {}
 };
   
 const NullPlayer = {
@@ -13,14 +13,14 @@ const NullPlayer = {
 
 const AudioPlayer = () => {
     // Audio Context required using soundfont
-    const audioContext = AudioContext && new AudioContext();
+    const audioContext = AC && new AC();
 
     // Soundfont Player
     let soundPlayer = NullPlayer;
 
     const Player = {
       setInstrument(instrumentName) {
-         Soundfont.instrument(AC, instrumentName)
+         Soundfont.instrument(audioContext, instrumentName)
          .then(sfPlayer => {
              soundPlayer = sfPlayer;
          })
@@ -35,7 +35,7 @@ const AudioPlayer = () => {
     return Player;
 };
 
-export default Player;
+export default AudioPlayer;
 
 
 
