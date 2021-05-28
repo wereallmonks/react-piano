@@ -24,7 +24,7 @@ const AudioPlayer = () => {
          .then(sfPlayer => {
              soundPlayer = sfPlayer;
          })
-         .catch(error => {
+         .catch(_error => {
              soundPlayer = NullPlayer;
          });
       },  
